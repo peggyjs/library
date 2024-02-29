@@ -1,0 +1,35 @@
+---
+name: Tests
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 21.x]
+        platform: [ubuntu-latest]
+
+    runs-on: ${{ matrix.platform }}
+
+    env:
+      OS: ${{ matrix.os }}
+      NODE: ${{ matrix.node-version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        run: corepack enable
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+      - run: pnpm install
+      - run: npm run test
+      - run: npm run lint
