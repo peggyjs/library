@@ -1,0 +1,6 @@
+#! peggy:
+1 1
+
+#! peggy: SignedDecimalInteger
+10 10
+! 01

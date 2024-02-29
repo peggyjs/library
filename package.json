@@ -1,0 +1,40 @@
+{
+  "name": "@peggyjs/library",
+  "version": "0.0.0",
+  "decription": "",
+  "type": "module",
+  "keywords": [
+    "peggy",
+    "peggyjs",
+    "peg.js",
+    "import",
+    "library",
+    "rules"
+  ],
+  "author": "Joe Hildebrand <joe-github@cursive.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peggyjs/library.git"
+  },
+  "homepage": "https://github.com/peggyjs/library#readme",
+  "bugs": {
+    "url": "https://github.com/peggyjs/library/issues"
+  },
+  "scripts": {
+    "build": "node tools/build.js",
+    "lint": "eslint .",
+    "test": "unexpectedly -sd '../$<base>.mjs' && unexpectedly -d '../$<base>.cjs'"
+  },
+  "devDependencies": {
+    "@peggyjs/eslint-config": "3.2.4",
+    "@peggyjs/eslint-plugin": "2.1.0",
+    "dax-sh": "0.39.2",
+    "peggy": "4.0.2",
+    "unexpectedly": "2.0.0"
+  },
+  "packageManager": "pnpm@8.15.4",
+  "engines": {
+    "node": ">=18"
+  }
+}
